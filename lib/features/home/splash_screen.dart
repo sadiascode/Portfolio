@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ).animate().scale(duration: 600.ms).then().shake(),
             const SizedBox(height: 30),
             const Text(
-              'SADIA.',
+              'SADIA AKTER MOON',
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,

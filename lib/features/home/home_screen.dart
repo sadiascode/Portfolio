@@ -107,7 +107,7 @@ class MobileDrawer extends ConsumerWidget {
           const DrawerHeader(
             child: Center(
               child: Text(
-                'SADIA.',
+                'SADIA AKTER MOON',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
