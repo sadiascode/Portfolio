@@ -28,11 +28,7 @@ class AboutSection extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (!isMobile)
-                Expanded(
-                  flex: 2,
-                  child: _buildImageFrame(),
-                ),
+              if (!isMobile) Expanded(flex: 2, child: _buildImageFrame()),
               if (!isMobile) const SizedBox(width: 80),
               Expanded(
                 flex: 3,
@@ -47,9 +43,9 @@ class AboutSection extends StatelessWidget {
                       "Flutter Developer with 1+ year of hands-on experience in developing cross-platform applications for Android, iOS, and Web using Flutter and Dart. Skilled in Firebase, Supabase, REST API integration, Riverpod state management, FCM, and responsive UI development. Experienced in building scalable and user-friendly applications across multiple platforms.",
                       textAlign: isMobile ? TextAlign.center : TextAlign.start,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                            fontSize: 18,
-                            height: 1.6,
-                          ),
+                        fontSize: 18,
+                        height: 1.6,
+                      ),
                     ),
                     const SizedBox(height: 40),
                     _buildStatsGrid(isMobile),
@@ -77,9 +73,9 @@ class AboutSection extends StatelessWidget {
         const SizedBox(height: 10),
         Text(
           subtitle,
-          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
         ).animate().fadeIn(delay: 200.ms).slideY(begin: 0.5),
         const SizedBox(height: 20),
         Container(
@@ -102,27 +98,19 @@ class AboutSection extends StatelessWidget {
         borderRadius: BorderRadius.circular(30),
         border: Border.all(color: AppColors.primary.withOpacity(0.5), width: 2),
       ),
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Positioned(
-            top: -20,
-            left: -20,
-            right: 20,
-            bottom: 20,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(30),
-              child: Image.asset(
-                'assets/sadia.png',
-                fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) => Container(
-                  color: AppColors.darkCard,
-                  child: const Icon(Icons.person, size: 100, color: Colors.white24),
-                ),
-              ),
-            ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(28),
+        child: Image.asset(
+          'assets/sadia.png',
+          width: double.infinity,
+          height: double.infinity,
+          fit: BoxFit.cover,
+          alignment: Alignment.center,
+          errorBuilder: (context, error, stackTrace) => Container(
+            color: AppColors.darkCard,
+            child: const Icon(Icons.person, size: 100, color: Colors.white24),
           ),
-        ],
+        ),
       ),
     ).animate().fadeIn(duration: 1.seconds).slideX(begin: -0.1);
   }
