@@ -42,7 +42,7 @@ dependencies:
   responsive_framework: ^1.5.1
   font_awesome_flutter: ^11.0.0
   flutter_svg: ^2.2.4
-  url_launcher: ^6.3.2
+  url_launcher: ^6.3.3
   animated_text_kit: ^4.3.0
   visibility_detector: ^0.4.0+2
   flutter_hooks: ^0.21.3+1

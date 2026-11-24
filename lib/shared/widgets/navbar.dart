@@ -22,7 +22,7 @@ class Navbar extends ConsumerWidget {
           children: [
             // Logo
             Text(
-              'SADIA.',
+              'SADIA',
               style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2,

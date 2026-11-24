@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../shared/widgets/glass_card.dart';
 import '../../../shared/widgets/responsive_layout.dart';
@@ -15,6 +16,13 @@ class ContactSection extends StatefulWidget {
 class _ContactSectionState extends State<ContactSection> {
   final _formKey = GlobalKey<FormState>();
   bool _isSent = false;
+
+  Future<void> _launchUrl(String url) async {
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -97,10 +105,8 @@ class _ContactSectionState extends State<ContactSection> {
         const SizedBox(height: 20),
         Row(
           children: [
-            _socialIcon(FontAwesomeIcons.github),
-            _socialIcon(FontAwesomeIcons.linkedin),
-            _socialIcon(FontAwesomeIcons.twitter),
-            _socialIcon(FontAwesomeIcons.whatsapp),
+            _socialIcon(FontAwesomeIcons.github, 'https://github.com/sadiascode'),
+            _socialIcon(FontAwesomeIcons.linkedin, 'https://www.linkedin.com/in/sadia-roha-093993383/'),
           ],
         ),
       ],
@@ -133,16 +139,19 @@ class _ContactSectionState extends State<ContactSection> {
     );
   }
 
-  Widget _socialIcon(dynamic icon) {
-    return Container(
-      margin: const EdgeInsets.only(right: 15),
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
-        shape: BoxShape.circle,
-        border: Border.all(color: Colors.white12),
+  Widget _socialIcon(dynamic icon, String url) {
+    return InkWell(
+      onTap: () => _launchUrl(url),
+      child: Container(
+        margin: const EdgeInsets.only(right: 15),
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: Colors.white.withOpacity(0.05),
+          shape: BoxShape.circle,
+          border: Border.all(color: Colors.white12),
+        ),
+        child: FaIcon(icon, color: Colors.white, size: 20),
       ),
-      child: FaIcon(icon, color: Colors.white, size: 20),
     );
   }
 

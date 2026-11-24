@@ -23,10 +23,17 @@ class ProjectsSection extends StatelessWidget {
 
   final List<Project> projects = [
     Project(
-      title: 'E-commerce SuperApp',
-      description: 'A full-featured multi-vendor marketplace with real-time tracking.',
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=600',
-      tech: ['Flutter', 'Firebase', 'Stripe'],
+      title: 'Financing App',
+      description: 'A comprehensive device financing application that enables customers to purchase smartphones, tablets, and electronics through flexible EMI plans. Features include secure authentication, product browsing, GPS-based delivery validation, account selection, EMI calculation, OTP verification, loan management, and PDF receipt generation.',
+      image: 'assets/financing.png',
+      tech: [
+        'Flutter',
+        'Riverpod',
+        'REST API',
+        'Shared Preferences',
+        'GPS & Location',
+        'Clean Architecture',
+      ],
     ),
     Project(
       title: 'Health Tracker',

@@ -23,7 +23,7 @@ class AboutSection extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: isMobile ? 20 : 100),
       child: Column(
         children: [
-          _sectionHeader(context, "ABOUT ME", "Crafting Digital Excellence"),
+          _sectionHeader(context, "ABOUT ME", "Passionate Flutter Developer"),
           const SizedBox(height: 60),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
