@@ -136,7 +136,7 @@ class AboutSection extends StatelessWidget {
       mainAxisSpacing: 20,
       childAspectRatio: 1.5,
       children: [
-        _statCard("3+", "Years Exp."),
+        _statCard("1+", "Years Exp."),
         _statCard("50+", "Projects"),
         _statCard("20+", "Happy Clients"),
       ],
