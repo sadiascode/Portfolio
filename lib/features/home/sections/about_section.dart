@@ -112,8 +112,8 @@ class AboutSection extends StatelessWidget {
             bottom: 20,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(30),
-              child: Image.network(
-                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=500',
+              child: Image.asset(
+                'assets/sadia.png',
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) => Container(
                   color: AppColors.darkCard,

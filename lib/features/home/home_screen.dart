@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:portfolio/features/home/sections/education_section.dart';
 import '../../shared/widgets/navbar.dart';
 import '../../providers/app_providers.dart';
 import 'sections/hero_section.dart';
@@ -72,6 +73,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 children: [
                   HeroSection(key: ScrollService.sectionKeys['hero']),
                   AboutSection(key: ScrollService.sectionKeys['about']),
+                  EducationSection(key: ScrollService.sectionKeys['education']),
                   SkillsSection(key: ScrollService.sectionKeys['skills']),
                   ServicesSection(key: ScrollService.sectionKeys['services']),
                   ProjectsSection(key: ScrollService.sectionKeys['projects']),
