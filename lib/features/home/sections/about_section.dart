@@ -42,7 +42,11 @@ class AboutSection extends StatelessWidget {
                     Text(
                       "Flutter Developer with 1+ year of hands-on experience in developing cross-platform applications for Android, iOS, and Web using Flutter and Dart. Skilled in Firebase, Supabase, REST API integration, Riverpod state management, FCM, and responsive UI development. Experienced in building scalable and user-friendly applications across multiple platforms.",
                       textAlign: isMobile ? TextAlign.center : TextAlign.start,
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      style: Theme
+                          .of(context)
+                          .textTheme
+                          .bodyLarge
+                          ?.copyWith(
                         fontSize: 18,
                         height: 1.6,
                       ),
@@ -73,9 +77,13 @@ class AboutSection extends StatelessWidget {
         const SizedBox(height: 10),
         Text(
           subtitle,
-          style: Theme.of(
+          style: Theme
+              .of(
             context,
-          ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
+          )
+              .textTheme
+              .headlineMedium
+              ?.copyWith(fontWeight: FontWeight.bold),
         ).animate().fadeIn(delay: 200.ms).slideY(begin: 0.5),
         const SizedBox(height: 20),
         Container(
@@ -106,10 +114,12 @@ class AboutSection extends StatelessWidget {
           height: double.infinity,
           fit: BoxFit.cover,
           alignment: Alignment.center,
-          errorBuilder: (context, error, stackTrace) => Container(
-            color: AppColors.darkCard,
-            child: const Icon(Icons.person, size: 100, color: Colors.white24),
-          ),
+          errorBuilder: (context, error, stackTrace) =>
+              Container(
+                color: AppColors.darkCard,
+                child: const Icon(
+                    Icons.person, size: 100, color: Colors.white24),
+              ),
         ),
       ),
     ).animate().fadeIn(duration: 1.seconds).slideX(begin: -0.1);
@@ -131,27 +141,51 @@ class AboutSection extends StatelessWidget {
     );
   }
 
+
   Widget _statCard(String value, String label) {
-    return GlassCard(
-      padding: const EdgeInsets.all(20),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            value,
-            style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-              color: AppColors.primary,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final screenWidth = MediaQuery
+            .of(context)
+            .size
+            .width;
+
+        final isMobile = screenWidth < 600;
+
+        return GlassCard(
+          padding: EdgeInsets.symmetric(
+            horizontal: isMobile ? 12 : 20,
+            vertical: isMobile ? 18 : 24,
+          ),
+          child: SizedBox(
+            width: double.infinity,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  value,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: isMobile ? 23 : 28,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.primary,
+                  ),
+                ),
+                SizedBox(height: isMobile ? 5 : 8),
+                Text(
+                  label,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: isMobile ? 12 : 14,
+                    color: Colors.white70,
+                  ),
+                ),
+              ],
             ),
           ),
-          const SizedBox(height: 5),
-          Text(
-            label,
-            style: const TextStyle(fontSize: 14, color: Colors.white70),
-          ),
-        ],
-      ),
-    ).animate().scale(delay: 400.ms);
+        ).animate().scale(delay: 400.ms);
+      },
+    );
   }
 }

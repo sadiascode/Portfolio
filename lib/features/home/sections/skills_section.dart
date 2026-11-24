@@ -16,17 +16,33 @@ class SkillsSection extends StatelessWidget {
   SkillsSection({super.key});
 
   final List<Skill> skills = [
-    Skill(name: 'Flutter (Android, iOS & Web)', level: 0.95, icon: Icons.flutter_dash),
+    Skill(
+      name: 'Flutter (Android, iOS & Web)',
+      level: 0.95,
+      icon: Icons.flutter_dash,
+    ),
     Skill(name: 'Dart', level: 0.9, icon: Icons.code),
     Skill(name: 'Firebase', level: 0.85, icon: Icons.cloud),
     Skill(name: 'Supabase', level: 0.8, icon: Icons.storage),
-    Skill(name: 'REST API Integration & Data Handling', level: 0.9, icon: Icons.api),
-    Skill(name: 'FCM Push Notifications', level: 0.85, icon: Icons.notifications),
+    Skill(
+      name: 'REST API Integration & Data Handling',
+      level: 0.9,
+      icon: Icons.api,
+    ),
+    Skill(
+      name: 'FCM Push Notifications',
+      level: 0.85,
+      icon: Icons.notifications,
+    ),
     Skill(name: 'Agora', level: 0.8, icon: Icons.video_call),
     Skill(name: 'Git & GitHub', level: 0.9, icon: Icons.terminal),
     Skill(name: 'Responsive UI Design', level: 0.95, icon: Icons.devices),
     Skill(name: 'SQLite', level: 0.8, icon: Icons.data_usage),
-    Skill(name: 'UI/UX Implementation', level: 0.8, icon: Icons.design_services),
+    Skill(
+      name: 'UI/UX Implementation',
+      level: 0.8,
+      icon: Icons.design_services,
+    ),
     Skill(name: 'Riverpod', level: 0.85, icon: Icons.layers),
   ];
 
@@ -42,22 +58,29 @@ class SkillsSection extends StatelessWidget {
             padding: EdgeInsets.symmetric(
               horizontal: ResponsiveLayout.isMobile(context) ? 20 : 100,
             ),
-            child: GridView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: ResponsiveLayout.isMobile(context)
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                final width = constraints.maxWidth;
+
+                final crossAxisCount = width < 800
                     ? 2
-                    : ResponsiveLayout.isTablet(context)
-                        ? 3
-                        : 4,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20,
-                childAspectRatio: 1.2,
-              ),
-              itemCount: skills.length,
-              itemBuilder: (context, index) {
-                return _buildSkillCard(skills[index], index);
+                    : width < 1200
+                    ? 3
+                    : 4;
+                return GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: skills.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: crossAxisCount,
+                    crossAxisSpacing: 12,
+                    mainAxisSpacing: 12,
+                    childAspectRatio: width < 500 ? 0.85 : 1.2,
+                  ),
+                  itemBuilder: (context, index) {
+                    return _buildSkillCard(skills[index], index);
+                  },
+                );
               },
             ),
           ),
@@ -80,61 +103,82 @@ class SkillsSection extends StatelessWidget {
         const SizedBox(height: 10),
         Text(
           subtitle,
-          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+          style: Theme.of(
+            context,
+          ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
         ).animate().fadeIn(delay: 200.ms).slideY(begin: 0.5),
       ],
     );
   }
 
   Widget _buildSkillCard(Skill skill, int index) {
-    return GlassCard(
-      padding: const EdgeInsets.all(20),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(skill.icon, color: AppColors.primary, size: 32),
-          const SizedBox(height: 15),
-          Text(
-            skill.name,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-          ),
-          const SizedBox(height: 15),
-          Stack(
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isMobile = MediaQuery.of(context).size.width < 600;
+
+        return GlassCard(
+          padding: EdgeInsets.all(isMobile ? 12 : 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                height: 6,
-                decoration: BoxDecoration(
-                  color: Colors.white12,
-                  borderRadius: BorderRadius.circular(3),
+              Icon(
+                skill.icon,
+                color: AppColors.primary,
+                size: isMobile ? 26 : 32,
+              ),
+              SizedBox(height: isMobile ? 8 : 15),
+              Flexible(
+                child: Text(
+                  skill.name,
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: isMobile ? 13 : 16,
+                  ),
                 ),
               ),
-              FractionallySizedBox(
-                widthFactor: skill.level,
-                child: Container(
-                  height: 6,
-                  decoration: BoxDecoration(
-                    gradient: AppColors.primaryGradient,
-                    borderRadius: BorderRadius.circular(3),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.primary.withOpacity(0.5),
-                        blurRadius: 4,
-                      ),
-                    ],
-                  ),
-                ).animate().scaleX(
-                      begin: 0,
-                      duration: 1.5.seconds,
-                      curve: Curves.easeOutCubic,
-                      delay: (index * 100).ms,
+              SizedBox(height: isMobile ? 10 : 15),
+              Stack(
+                children: [
+                  Container(
+                    height: 6,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.white12,
+                      borderRadius: BorderRadius.circular(3),
                     ),
+                  ),
+                  FractionallySizedBox(
+                    widthFactor: skill.level,
+                    child:
+                        Container(
+                          height: 6,
+                          decoration: BoxDecoration(
+                            gradient: AppColors.primaryGradient,
+                            borderRadius: BorderRadius.circular(3),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppColors.primary.withOpacity(0.5),
+                                blurRadius: 4,
+                              ),
+                            ],
+                          ),
+                        ).animate().scaleX(
+                          begin: 0,
+                          duration: 1.5.seconds,
+                          curve: Curves.easeOutCubic,
+                          delay: (index * 100).ms,
+                        ),
+                  ),
+                ],
               ),
             ],
           ),
-        ],
-      ),
-    ).animate().fadeIn(delay: (index * 50).ms).slideY(begin: 0.2);
+        ).animate().fadeIn(delay: (index * 50).ms).slideY(begin: 0.2);
+      },
+    );
   }
 }
