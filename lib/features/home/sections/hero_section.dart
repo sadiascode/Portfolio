@@ -48,7 +48,7 @@ class HeroSection extends StatelessWidget {
                   header: true,
                   label: "Introduction: Hi, I'm Sadia",
                   child: Text(
-                    "HI, I'M SADIA",
+                    "HI, I'M SADIA AKTER MON",
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                           color: AppColors.primary,
                           letterSpacing: 4,

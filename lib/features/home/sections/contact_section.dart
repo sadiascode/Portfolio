@@ -86,8 +86,9 @@ class _ContactSectionState extends State<ContactSection> {
           style: TextStyle(color: Colors.white70, fontSize: 18, height: 1.5),
         ),
         const SizedBox(height: 40),
-        _contactItem(Icons.email, "Email", "hello@sadia.dev"),
-        _contactItem(Icons.location_on, "Location", "Dhaka, Bangladesh"),
+        _contactItem(Icons.email, "Email", "rahmanrohasadia@gmail.com"),
+        _contactItem(Icons.location_on, "Location", "Banasree, Dhaka, Bangladesh"),
+        _contactItem(Icons.link, "GitHub", "https://github.com/sadiascode"),
         const SizedBox(height: 40),
         const Text(
           "Follow Me",

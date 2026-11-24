@@ -16,18 +16,18 @@ class SkillsSection extends StatelessWidget {
   SkillsSection({super.key});
 
   final List<Skill> skills = [
-    Skill(name: 'Flutter', level: 0.95, icon: Icons.flutter_dash),
+    Skill(name: 'Flutter (Android, iOS & Web)', level: 0.95, icon: Icons.flutter_dash),
     Skill(name: 'Dart', level: 0.9, icon: Icons.code),
     Skill(name: 'Firebase', level: 0.85, icon: Icons.cloud),
-    Skill(name: 'REST API', level: 0.9, icon: Icons.api),
     Skill(name: 'Supabase', level: 0.8, icon: Icons.storage),
-    Skill(name: 'Riverpod', level: 0.85, icon: Icons.layers),
-    Skill(name: 'UI/UX', level: 0.8, icon: Icons.design_services),
-    Skill(name: 'Git/GitHub', level: 0.9, icon: Icons.terminal),
-    Skill(name: 'Clean Arch', level: 0.85, icon: Icons.architecture),
-    Skill(name: 'Animation', level: 0.8, icon: Icons.animation),
+    Skill(name: 'REST API Integration & Data Handling', level: 0.9, icon: Icons.api),
+    Skill(name: 'FCM Push Notifications', level: 0.85, icon: Icons.notifications),
+    Skill(name: 'Agora', level: 0.8, icon: Icons.video_call),
+    Skill(name: 'Git & GitHub', level: 0.9, icon: Icons.terminal),
+    Skill(name: 'Responsive UI Design', level: 0.95, icon: Icons.devices),
     Skill(name: 'SQLite', level: 0.8, icon: Icons.data_usage),
-    Skill(name: 'Responsive', level: 0.95, icon: Icons.devices),
+    Skill(name: 'UI/UX Implementation', level: 0.8, icon: Icons.design_services),
+    Skill(name: 'Riverpod', level: 0.85, icon: Icons.layers),
   ];
 
   @override

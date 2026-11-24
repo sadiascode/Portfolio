@@ -15,6 +15,8 @@ class ScrollService {
     'experience': GlobalKey(),
     'testimonials': GlobalKey(),
     'contact': GlobalKey(),
+    'education': GlobalKey(),
+    'achievements': GlobalKey(),
   };
 
   static void scrollTo(String section) {

@@ -44,7 +44,7 @@ class AboutSection extends StatelessWidget {
                     if (isMobile) _buildImageFrame(),
                     if (isMobile) const SizedBox(height: 40),
                     Text(
-                      "I'm a passionate Flutter Developer with over 3 years of experience in building high-performance, beautiful mobile and web applications. My journey started with a fascination for clean UI/UX and evolved into a deep mastery of cross-platform development.",
+                      "Flutter Developer with 1+ year of hands-on experience in developing cross-platform applications for Android, iOS, and Web using Flutter and Dart. Skilled in Firebase, Supabase, REST API integration, Riverpod state management, FCM, and responsive UI development. Experienced in building scalable and user-friendly applications across multiple platforms.",
                       textAlign: isMobile ? TextAlign.center : TextAlign.start,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                             fontSize: 18,

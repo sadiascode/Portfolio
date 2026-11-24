@@ -23,22 +23,16 @@ class ExperienceSection extends StatelessWidget {
 
   final List<Experience> experiences = [
     Experience(
-      year: '2023 - Present',
-      title: 'Senior Flutter Developer',
-      company: 'TechFlow Solutions',
-      description: 'Leading the mobile team in developing high-scale FinTech applications.',
-    ),
-    Experience(
-      year: '2021 - 2023',
+      year: 'June 2026 – Present',
       title: 'Flutter Developer',
-      company: 'Innovate App Studio',
-      description: 'Developed and maintained 10+ cross-platform apps for global clients.',
+      company: 'Infiniatech Ltd',
+      description: 'Developed and maintained Flutter mobile applications. Third-Party REST API Integration & Data Handling. Worked with Firebase Authentication, Firestore, FCM and Supabase. Implemented real-time communication features using Agora SDK. Collaborated with team members to deliver user-friendly applications. Used Git and GitHub for version control.',
     ),
     Experience(
-      year: '2020 - 2021',
-      title: 'Junior App Developer',
-      company: 'Digital Pulse',
-      description: 'Started the journey with native Android and transitioned to Flutter.',
+      year: 'September 2025 – June 2026',
+      title: 'Flutter Developer',
+      company: 'Fire AI (Betopia Group)',
+      description: 'Developed and maintained Flutter mobile applications. Third-Party REST API Integration & Data Handling. Worked with Firebase Authentication, Firestore, FCM and Supabase. Implemented real-time communication features using Agora SDK. Collaborated with team members to deliver user-friendly applications. Used Git and GitHub for version control.',
     ),
   ];
 
