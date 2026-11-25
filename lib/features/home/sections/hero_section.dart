@@ -95,13 +95,28 @@ class HeroSection extends StatelessWidget {
                       context,
                       "Hire Me",
                       isPrimary: true,
-                      onPressed: () {},
+                                            onPressed: () async {
+                        final Uri emailLaunchUri = Uri(
+                          scheme: 'mailto',
+                          path: 'rahmanrohasadia@gmail.com',
+                        );
+                        await launchUrl(emailLaunchUri);
+                      },
                     ),
                     _ctaButton(
                       context,
                       "Download CV",
                       isPrimary: false,
-                      onPressed: () {},
+                                            onPressed: () async {
+                        final Uri emailLaunchUri = Uri(
+                          scheme: 'mailto',
+                          path: 'rahmanrohasadia@gmail.com',
+                          queryParameters: {
+                            'subject': 'Hiring Inquiry - Flutter Developer',
+                            },
+                        );
+                        await launchUrl(emailLaunchUri);
+                      },
                     ),
                   ],
                 ).animate().fadeIn(delay: 800.ms),
