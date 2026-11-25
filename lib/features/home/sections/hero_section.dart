@@ -124,10 +124,13 @@ class HeroSection extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: const Icon(
-                    Icons.flutter_dash,
-                    size: 200,
-                    color: Colors.white,
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/sadia.png',
+                      width: 200,
+                      height: 200,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ).animate(onPlay: (controller) => controller.repeat(reverse: true))
                   .moveY(begin: -20, end: 20, duration: 2.seconds, curve: Curves.easeInOut),
