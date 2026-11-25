@@ -15,6 +15,10 @@ class ContactSection extends StatefulWidget {
 
 class _ContactSectionState extends State<ContactSection> {
   final _formKey = GlobalKey<FormState>();
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _subjectController = TextEditingController();
+  final _messageController = TextEditingController();
   bool _isSent = false;
 
   Future<void> _launchUrl(String url) async {
@@ -219,8 +223,13 @@ class _ContactSectionState extends State<ContactSection> {
           gradient: AppColors.primaryGradient,
         ),
         child: ElevatedButton(
-          onPressed: () {
+          onPressed: () async {
             if (_formKey.currentState!.validate()) {
+              final Uri emailLaunchUri = Uri(
+                scheme: 'mailto',
+                path: 'rahmanrohasadia@gmail.com',
+              );
+              await launchUrl(emailLaunchUri, mode: LaunchMode.externalApplication);
               setState(() => _isSent = true);
             }
           },
