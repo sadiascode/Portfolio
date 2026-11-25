@@ -48,10 +48,10 @@ class ProjectsSection extends StatelessWidget {
       tech: ['Flutter', 'Dart', 'REST API'],
     ),
     Project(
-      title: 'Foodie Delivery',
-      description: 'On-demand food delivery app with real-time maps.',
-      image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&q=80&w=600',
-      tech: ['Flutter', 'Google Maps', 'Node.js'],
+      title: 'Top Talent Agency',
+      description: 'Multi-role talent management platform featuring performance analytics, rankings, AI-powered insights, risk monitoring, and real-time data management.',
+      image: 'assets/toptalent.jpeg',
+      tech: ['Flutter', 'Dart', 'REST API', 'Riverpod'],
     ),
   ];
 
