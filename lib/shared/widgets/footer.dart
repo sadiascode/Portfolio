@@ -7,30 +7,34 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isSmallScreen = MediaQuery.of(context).size.width < 600;
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 20),
+      padding: EdgeInsets.symmetric(
+        vertical: 60,
+        horizontal: isSmallScreen ? 20 : 80,
+      ),
       decoration: BoxDecoration(
         color: AppColors.darkBackground,
         border: const Border(top: BorderSide(color: Colors.white12)),
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'SADIA.',
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 2,
-                      color: AppColors.primary,
-                    ),
-              ),
-            ],
+          // Branding / Title
+          Text(
+            'SADIA',
+            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2,
+                  color: AppColors.primary,
+                ),
           ),
           const SizedBox(height: 30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          // Links – responsive layout
+          Wrap(
+            alignment: WrapAlignment.center,
+            spacing: isSmallScreen ? 10 : 30,
+            runSpacing: 10,
             children: [
               _footerLink(context, 'Home', 'hero'),
               _footerLink(context, 'About', 'about'),
@@ -55,10 +59,10 @@ class Footer extends StatelessWidget {
   }
 
   Widget _footerLink(BuildContext context, String title, String section) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: InkWell(
-        onTap: () => ScrollService.scrollTo(section),
+    return InkWell(
+      onTap: () => ScrollService.scrollTo(section),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
         child: Text(
           title,
           style: const TextStyle(color: Colors.white54, fontSize: 14),
