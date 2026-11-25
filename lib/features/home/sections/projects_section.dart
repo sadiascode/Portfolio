@@ -39,7 +39,7 @@ class ProjectsSection extends StatelessWidget {
     Project(
       title: 'MedAI',
       description: 'AI-powered healthcare app featuring chatbot assistance, prescription upload, automatic medicine scheduling, reminders, and doctor communication.',
-      image: 'assets/medai.svg',
+      image: 'assets/medai.jpeg',
       tech: ['Flutter', 'Dart', 'REST API', 'AI Chatbot'],
     ),
     Project(
@@ -177,6 +177,8 @@ class ProjectsSection extends StatelessWidget {
                 const SizedBox(height: 10),
                 Text(
                   project.description,
+                  maxLines: 5,
+                  overflow: TextOverflow.ellipsis,
                   style: const TextStyle(color: Colors.white70, height: 1.5),
                 ),
                 const SizedBox(height: 20),
