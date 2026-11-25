@@ -11,7 +11,7 @@ class HeroSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    
+
     return Container(
       height: size.height,
       width: double.infinity,
@@ -19,10 +19,7 @@ class HeroSection extends StatelessWidget {
         gradient: RadialGradient(
           center: const Alignment(0.8, -0.5),
           radius: 1.5,
-          colors: [
-            AppColors.primary.withOpacity(0.1),
-            Colors.transparent,
-          ],
+          colors: [AppColors.primary.withOpacity(0.1), Colors.transparent],
         ),
       ),
       child: ResponsiveLayout(
@@ -41,8 +38,9 @@ class HeroSection extends StatelessWidget {
             flex: 3,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment:
-                  isMobile ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+              crossAxisAlignment: isMobile
+                  ? CrossAxisAlignment.center
+                  : CrossAxisAlignment.start,
               children: [
                 Semantics(
                   header: true,
@@ -50,10 +48,10 @@ class HeroSection extends StatelessWidget {
                   child: Text(
                     "HI, I'M SADIA AKTER MON",
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          color: AppColors.primary,
-                          letterSpacing: 4,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      color: AppColors.primary,
+                      letterSpacing: 4,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ).animate().fadeIn(duration: 800.ms).slideX(begin: -0.2),
                 const SizedBox(height: 20),
@@ -61,9 +59,9 @@ class HeroSection extends StatelessWidget {
                   height: isMobile ? 120 : 180,
                   child: DefaultTextStyle(
                     style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                          fontSize: isMobile ? 40 : 80,
-                          height: 1.1,
-                        ),
+                      fontSize: isMobile ? 40 : 80,
+                      height: 1.1,
+                    ),
                     child: AnimatedTextKit(
                       animatedTexts: [
                         TypewriterAnimatedText('Flutter Developer'),
@@ -81,13 +79,15 @@ class HeroSection extends StatelessWidget {
                   "Building premium cross-platform experiences with Flutter and modern cloud architectures. Let's turn your vision into a world-class application.",
                   textAlign: isMobile ? TextAlign.center : TextAlign.start,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        fontSize: isMobile ? 16 : 20,
-                        color: AppColors.darkTextSecondary,
-                      ),
+                    fontSize: isMobile ? 16 : 20,
+                    color: AppColors.darkTextSecondary,
+                  ),
                 ).animate().fadeIn(delay: 500.ms).slideY(begin: 0.2),
                 const SizedBox(height: 40),
                 Wrap(
-                  alignment: isMobile ? WrapAlignment.center : WrapAlignment.start,
+                  alignment: isMobile
+                      ? WrapAlignment.center
+                      : WrapAlignment.start,
                   spacing: 20,
                   runSpacing: 20,
                   children: [
@@ -95,7 +95,7 @@ class HeroSection extends StatelessWidget {
                       context,
                       "Hire Me",
                       isPrimary: true,
-                                            onPressed: () async {
+                      onPressed: () async {
                         final Uri emailLaunchUri = Uri(
                           scheme: 'mailto',
                           path: 'rahmanrohasadia@gmail.com',
@@ -107,15 +107,14 @@ class HeroSection extends StatelessWidget {
                       context,
                       "Download CV",
                       isPrimary: false,
-                                            onPressed: () async {
-                        final Uri emailLaunchUri = Uri(
-                          scheme: 'mailto',
-                          path: 'rahmanrohasadia@gmail.com',
-                          queryParameters: {
-                            'subject': 'Hiring Inquiry - Flutter Developer',
-                            },
+                      onPressed: () async {
+                        final Uri cvUri = Uri.parse(
+                          'https://drive.google.com/file/d/1-pXYH4IJjhVsTUKKnWhA8jHkVxSc8dj-/view?usp=sharing',
                         );
-                        await launchUrl(emailLaunchUri);
+                        await launchUrl(
+                          cvUri,
+                          mode: LaunchMode.externalApplication,
+                        );
                       },
                     ),
                   ],
@@ -127,30 +126,40 @@ class HeroSection extends StatelessWidget {
             Expanded(
               flex: 2,
               child: Center(
-                child: Container(
-                  width: 400,
-                  height: 400,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    gradient: AppColors.primaryGradient,
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.primary.withOpacity(0.3),
-                        blurRadius: 50,
-                        spreadRadius: 10,
-                      ),
-                    ],
-                  ),
-                  child: ClipOval(
-                    child: Image.asset(
-                      'assets/sadia.png',
-                      width: 200,
-                      height: 200,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ).animate(onPlay: (controller) => controller.repeat(reverse: true))
-                  .moveY(begin: -20, end: 20, duration: 2.seconds, curve: Curves.easeInOut),
+                child:
+                    Container(
+                          width: 400,
+                          height: 400,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            gradient: AppColors.primaryGradient,
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppColors.primary.withOpacity(0.3),
+                                blurRadius: 50,
+                                spreadRadius: 10,
+                              ),
+                            ],
+                          ),
+                          child: ClipOval(
+                            child: Image.asset(
+                              'assets/sadia.png',
+                              width: 200,
+                              height: 200,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        )
+                        .animate(
+                          onPlay: (controller) =>
+                              controller.repeat(reverse: true),
+                        )
+                        .moveY(
+                          begin: -20,
+                          end: 20,
+                          duration: 2.seconds,
+                          curve: Curves.easeInOut,
+                        ),
               ),
             ),
         ],
@@ -176,7 +185,9 @@ class HeroSection extends StatelessWidget {
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,
           padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 25),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
+          ),
         ),
         child: Text(
           text,
