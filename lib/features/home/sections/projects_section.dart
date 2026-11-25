@@ -184,8 +184,6 @@ class ProjectsSection extends StatelessWidget {
                 const SizedBox(height: 20),
                 Row(
                   children: [
-                    _iconButton(Icons.link, "Live"),
-                    const SizedBox(width: 20),
                     _iconButton(Icons.code, "GitHub"),
                   ],
                 ),
