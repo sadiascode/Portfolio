@@ -6,16 +6,12 @@ import '../../../shared/widgets/responsive_layout.dart';
 
 class Testimonial {
   final String name;
-  final String role;
   final String quote;
-  final String avatar;
   final double rating;
 
   Testimonial({
     required this.name,
-    required this.role,
     required this.quote,
-    required this.avatar,
     required this.rating,
   });
 }
@@ -25,24 +21,18 @@ class TestimonialsSection extends StatelessWidget {
 
   final List<Testimonial> testimonials = [
     Testimonial(
-      name: 'Alex Johnson',
-      role: 'CEO, TechNova',
-      quote: 'Sadia delivered a world-class Flutter application that exceeded our expectations. The attention to detail is remarkable.',
-      avatar: 'https://i.pravatar.cc/150?u=alex',
+      name: 'Asif Mahmood',
+      quote: 'Sadia was great to work with! She understood our requirements and delivered the app just the way we wanted. Really happy with the final result.',
       rating: 5,
     ),
     Testimonial(
-      name: 'Sarah Miller',
-      role: 'Product Manager, FitLife',
-      quote: 'Working with Sadia was a breeze. She understood our requirements perfectly and implemented them with high quality.',
-      avatar: 'https://i.pravatar.cc/150?u=sarah',
+      name: 'Shiv Parvati',
+      quote: 'I had a wonderful experience working with Sadia. She was patient, professional, and made sure every feature worked as expected. Highly recommended!',
       rating: 5,
     ),
     Testimonial(
-      name: 'David Chen',
-      role: 'Founder, CryptoDash',
-      quote: 'The animations and responsiveness of our dashboard are incredible. Highly recommend her for any premium project.',
-      avatar: 'https://i.pravatar.cc/150?u=david',
+      name: 'Djsaja',
+      quote: 'Sadia did an amazing job with our mobile application. The app looks beautiful, runs smoothly, and works exactly as we expected.',
       rating: 4.5,
     ),
   ];
@@ -110,7 +100,12 @@ class TestimonialsSection extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 25,
-                backgroundImage: NetworkImage(t.avatar),
+                backgroundColor: AppColors.lightTextPrimary,
+                child: Icon(
+                  Icons.person,
+                  size: 25,
+                  color: Colors.white,
+                ),
               ),
               const SizedBox(width: 15),
               Column(
@@ -119,10 +114,6 @@ class TestimonialsSection extends StatelessWidget {
                   Text(
                     t.name,
                     style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    t.role,
-                    style: const TextStyle(color: Colors.white54, fontSize: 12),
                   ),
                 ],
               ),
