@@ -78,8 +78,8 @@ class _ContactSectionState extends State<ContactSection> {
         Text(
           subtitle,
           style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
+            fontWeight: FontWeight.bold,
+          ),
         ).animate().fadeIn(delay: 200.ms).slideY(begin: 0.5),
       ],
     );
